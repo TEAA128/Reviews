@@ -1,10 +1,10 @@
 ## Server API
 
-### Get restaurant info
-  * GET `/api/restaurants/:id`
+### Get review info
+  * GET `/reviews/:id`
 
 **Path Parameters:**
-  * `id` restaurant id
+  * `id`  id
 
 **Success Status Code:** `200`
 
@@ -12,39 +12,59 @@
 
 ```json
     {
-      "id": "Number",
-      "name": "String",
-      "address": "String",
-      "phone": "String",
-      "website": "String",
-      "cost": "Number"
+        "scores": {
+            "cleanliness": 5,
+            "communication": 2,
+            "check_in": 3,
+            "accuracy": 4,
+            "location": 3,
+            "value": 3
+        },
+        "_id": "5f08a6331f4175e8f2440265",
+        "_roomId": 23,
+        "user_name": "Bettie",
+        "user_image": "https://s3.amazonaws.com/uifaces/faces/twitter/sreejithexp/128.jpg",
+        "user_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "date": "2020-06-02T15:12:04.728Z",
+        "text": "We need to reboot the optical FTP sensor!",
+        "__v": 0
     }
 ```
 
-### Add restaurant
-  * POST `/api/restaurants`
+### Add review
+  * POST `/reviews`
 
 **Success Status Code:** `201`
 
 **Request Body**: Expects JSON with the following keys.
 
 ```json
-    {
-      "name": "String",
-      "address": "String",
-      "phone": "String",
-      "website": "String",
-      "googleMap": "String location",
-      "cost": "Number"
+     {
+        "scores": {
+            "cleanliness": 5,
+            "communication": 2,
+            "check_in": 3,
+            "accuracy": 4,
+            "location": 3,
+            "value": 3
+        },
+        "_id": "5f08a6331f4175e8f2440265",
+        "_roomId": 23,
+        "user_name": "Bettie",
+        "user_image": "https://s3.amazonaws.com/uifaces/faces/twitter/sreejithexp/128.jpg",
+        "user_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "date": "2020-06-02T15:12:04.728Z",
+        "text": "We need to reboot the optical FTP sensor!",
+        "__v": 0
     }
 ```
 
 
-### Update restaurant info
-  * PATCH `/api/restaurant/:id`
+### Update review info
+  * PATCH `/api/review/:id`
 
 **Path Parameters:**
-  * `id` restaurant id
+  * `id` review id
 
 **Success Status Code:** `204`
 
@@ -52,42 +72,30 @@
 
 ```json
     {
-      "name": "String",
-      "address": "String",
-      "phone": "String",
-      "website": "String",
-      "cost": "Number"
+        "scores": {
+            "cleanliness": 5,
+            "communication": 2,
+            "check_in": 3,
+            "accuracy": 4,
+            "location": 3,
+            "value": 3
+        },
+        "_id": "5f08a6331f4175e8f2440265",
+        "_roomId": 23,
+        "user_name": "Bettie",
+        "user_image": "https://s3.amazonaws.com/uifaces/faces/twitter/sreejithexp/128.jpg",
+        "user_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "date": "2020-06-02T15:12:04.728Z",
+        "text": "We need to reboot the optical FTP sensor!",
+        "__v": 0
     }
 ```
 
-### Delete restaurant
-  * DELETE `/api/restaurant/:id`
+### Delete review
+  * DELETE `reviews/:id`
 
 **Path Parameters:**
-  * `id` restaurant id
+  * `id` review id
 
 **Success Status Code:** `204`
 
-### Add image to restaurant
-  * POST `/api/restaurants/:restaurantId/images`
-
-**Path Parameters:**
-
-  * `restaurantId` restaurant id
-
-**Success Status Code:** `201`
-
-**Request Body**: Expects JSON with the following keys.
-
-```json
-    {
-      "user": "String",
-      "image": "image URL",
-      "description": "String",
-      "posted": "YYYY-MM-MM",
-      "googleMap": "String location",
-      "category": "String",
-      "restaurant": "id Number",
-      "cost": "Number"
-    }
-```
